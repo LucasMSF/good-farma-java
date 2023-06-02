@@ -13,3 +13,11 @@
 .btn-secondary:pressed {
     -fx-opacity: 0.85;
 }
+
+.text-field {
+    -fx-font-size: 16px;
+}
+
+.auth-container {
+    -fx-background-color: #0373fc
+}

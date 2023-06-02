@@ -11,6 +11,6 @@ public class MenuController {
 
     @FXML
     protected void onHelloButtonClick() {
-        MainApplication.navigate(Views.HELLO);
+        System.out.println("Clicked");
     }
 }

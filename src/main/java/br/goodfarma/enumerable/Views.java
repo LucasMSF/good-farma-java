@@ -10,20 +10,23 @@ import java.io.IOException;
 
 public enum Views {
     MENU("Menu", "menu"),
-    HELLO("Hello", "hello");
+    AUTH("Autenticação", "auth", 450, 600);
 
     private final String title;
     private final Scene view;
-    Views(String title, String viewName) {
+    Views(String title, String viewName, int width, int height) {
         this.title = title;
 
         try {
-            FXMLLoader menuLoader = new FXMLLoader(MainApplication.class.getResource("view/" + viewName + "-view.fxml"));
-            this.view = new javafx.scene.Scene(menuLoader.load(), 1000, 500);
+            FXMLLoader sceneLoader = new FXMLLoader(MainApplication.class.getResource("view/" + viewName + "-view.fxml"));
+            this.view = new javafx.scene.Scene(sceneLoader.load(), width, height);
             this.view.getStylesheets().add(MainApplication.class.getResource("style/style.css").toExternalForm());
         } catch (IOException e) {
             throw new RuntimeException("Error on load scene");
         }
+    }
+    Views(String title, String viewName) {
+        this(title, viewName, 1000, 500);
     }
 
     public String getTitle() {
