@@ -1,0 +1,15 @@
+.btn-secondary {
+    -fx-background-color: #e60b58;
+    -fx-font-size: 28px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFF
+}
+
+.btn-secondary:hover {
+    -fx-opacity: 0.95;
+}
+
+.btn-secondary:pressed {
+    -fx-opacity: 0.85;
+}
