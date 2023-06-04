@@ -10,7 +10,8 @@ import java.io.IOException;
 
 public enum Views {
     MENU("Menu", "menu"),
-    AUTH("Autenticação", "auth", 450, 600);
+    AUTH("Autenticação", "auth", 450, 600),
+    EMPLOY("Funcionários", "employ");
 
     private final String title;
     private final Scene view;
@@ -26,7 +27,7 @@ public enum Views {
         }
     }
     Views(String title, String viewName) {
-        this(title, viewName, 1000, 500);
+        this(title, viewName, 1000, 650);
     }
 
     public String getTitle() {

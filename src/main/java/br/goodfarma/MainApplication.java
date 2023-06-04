@@ -14,7 +14,7 @@ public class MainApplication extends Application {
 
         Font.loadFont(this.getClass().getResourceAsStream("style/font/Roboto-Regular.ttf"), 14);
 
-        MainApplication.navigate(Views.AUTH);
+            MainApplication.navigate(Views.EMPLOY);
         stage.show();
     }
 

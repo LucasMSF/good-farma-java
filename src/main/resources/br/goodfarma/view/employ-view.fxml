@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import br.goodfarma.helper.MaskedTextField?>
+<?import javafx.scene.control.PasswordField?>
+<AnchorPane prefHeight="650" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="br.goodfarma.controller.EmployController">
+    <children>
+        <fx:include source="partial/sidebar-view.fxml"/>
+        <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="366.0" layoutY="5.0" prefHeight="490.0"
+              prefWidth="626.0" spacing="20.0">
+            <children>
+                <Pane prefHeight="70.0" prefWidth="616.0">
+                    <children>
+                        <TextField fx:id="txtName" layoutX="3.0" layoutY="29.0" prefHeight="41.0" prefWidth="610.0"
+                                   promptText="Informe o nome" styleClass="text-field"/>
+                        <Label layoutX="3.0" prefHeight="29.0" prefWidth="139.0" styleClass="control-label"
+                               text="Nome"/>
+                    </children>
+                </Pane>
+                <Pane prefHeight="70.0" prefWidth="616.0">
+                    <children>
+                        <MaskedTextField fx:id="txtCpf" layoutX="3.0" layoutY="29.0" prefHeight="41.0" prefWidth="610.0"
+                                         promptText="Informe o CPF" styleClass="text-field" mask="###.###.###-##"/>
+                        <!--                  <TextField fx:id="txtCpf" layoutX="3.0" layoutY="29.0" prefHeight="41.0" prefWidth="610.0" promptText="Informe o CPF" styleClass="text-field" />-->
+                        <Label layoutX="3.0" prefHeight="29.0" prefWidth="139.0" styleClass="control-label" text="CPF"/>
+                    </children>
+                </Pane>
+                <Pane prefHeight="70.0" prefWidth="616.0">
+                    <children>
+                        <MaskedTextField fx:id="txtTelephone" layoutX="3.0" layoutY="29.0" prefHeight="41.0"
+                                         prefWidth="610.0" promptText="Informe o telefone" styleClass="text-field"
+                                         mask="(##)#####-####"/>
+                        <!--                  <TextField fx:id="txtTelephone" layoutX="3.0" layoutY="29.0" prefHeight="41.0" prefWidth="610.0" promptText="Informe o telefone" styleClass="text-field" />-->
+                        <Label layoutX="3.0" prefHeight="29.0" prefWidth="139.0" styleClass="control-label"
+                               text="Telefone"/>
+                    </children>
+                </Pane>
+                <Pane prefHeight="70.0" prefWidth="616.0">
+                    <children>
+                        <TextField fx:id="txtLogin" layoutX="3.0" layoutY="29.0" prefHeight="41.0" prefWidth="610.0"
+                                   promptText="Informe o login" styleClass="text-field"/>
+                        <Label layoutX="3.0" prefHeight="29.0" prefWidth="139.0" styleClass="control-label"
+                               text="Login"/>
+                    </children>
+                </Pane>
+                <Pane prefHeight="70.0" prefWidth="616.0">
+                    <children>
+                        <PasswordField fx:id="txtPassword" layoutX="3.0" layoutY="29.0" prefHeight="41.0" prefWidth="610.0"
+                                   promptText="Informe a senha" styleClass="text-field"/>
+                        <Label layoutX="3.0" prefHeight="29.0" prefWidth="139.0" styleClass="control-label"
+                               text="Senha"/>
+                    </children>
+                </Pane>
+            </children>
+            <padding>
+                <Insets top="20.0"/>
+            </padding>
+        </VBox>
+    </children>
+
+</AnchorPane>
