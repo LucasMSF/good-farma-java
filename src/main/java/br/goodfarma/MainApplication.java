@@ -1,9 +1,12 @@
 package br.goodfarma;
 
+import br.goodfarma.dao.EmployDao;
 import br.goodfarma.enumerable.Views;
 import javafx.application.Application;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
+import java.sql.SQLException;
 
 public class MainApplication extends Application {
     private static Stage stage;
@@ -14,7 +17,7 @@ public class MainApplication extends Application {
 
         Font.loadFont(this.getClass().getResourceAsStream("style/font/Roboto-Regular.ttf"), 14);
 
-            MainApplication.navigate(Views.EMPLOY);
+        MainApplication.navigate(Views.EMPLOY);
         stage.show();
     }
 

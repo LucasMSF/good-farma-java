@@ -3,6 +3,7 @@ module com.example.goodfarma {
     requires javafx.fxml;
     requires org.kordamp.bootstrapfx.core;
     requires org.controlsfx.controls;
+    requires java.sql;
 
 
     opens br.goodfarma to javafx.fxml;
