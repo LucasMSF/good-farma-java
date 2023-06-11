@@ -1,17 +1,25 @@
-.btn-secondary {
+.btn {
     -fx-background-color: #e60b58;
-    -fx-font-size: 28px;
+    -fx-font-size: 18px;
     -fx-font-family: "Roboto";
     -fx-font-weight: bold;
     -fx-text-fill: #FFF
 }
 
-.btn-secondary:hover {
+.btn:hover {
     -fx-opacity: 0.95;
 }
 
-.btn-secondary:pressed {
+.btn:pressed {
     -fx-opacity: 0.85;
+}
+
+.btn-primary {
+    -fx-background-color: #0373fc;
+}
+
+.btn-secondary {
+    -fx-background-color: #e60b58;
 }
 
 .text-field {

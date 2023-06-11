@@ -17,6 +17,10 @@ public class Employ {
         this.password = password;
     }
 
+    public Employ(String cpf) {
+        this.cpf = cpf;
+    }
+
     public String getName() {
         return name;
     }
