@@ -11,7 +11,8 @@ import java.io.IOException;
 public enum Views {
     MENU("Menu", "menu"),
     AUTH("Autenticação", "auth", 450, 600),
-    EMPLOY("Funcionários", "employ");
+    EMPLOY("Funcionários", "employ"),
+    PRODUCT("Produtos", "product");
 
     private final String title;
     private final Scene view;

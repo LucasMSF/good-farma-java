@@ -1,7 +1,9 @@
-package br.goodfarma.helper;
+package br.goodfarma.helper.validation;
 
 import br.goodfarma.enumerable.Validations;
+import javafx.scene.control.TextFormatter;
 
+import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
 public class Validation {

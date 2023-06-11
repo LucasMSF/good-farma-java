@@ -3,6 +3,7 @@ package br.goodfarma.model;
 import java.util.Objects;
 
 public class Employ {
+    private int id;
     private String name;
     private String cpf;
     private String telephone;

@@ -12,4 +12,6 @@ module com.example.goodfarma {
     opens br.goodfarma.controller to javafx.fxml;
     exports br.goodfarma.helper;
     opens br.goodfarma.helper to javafx.fxml;
+    exports br.goodfarma.helper.validation;
+    opens br.goodfarma.helper.validation to javafx.fxml;
 }

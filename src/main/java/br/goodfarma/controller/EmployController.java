@@ -5,7 +5,7 @@ import br.goodfarma.dao.Dao;
 import br.goodfarma.dao.EmployDao;
 import br.goodfarma.enumerable.Validations;
 import br.goodfarma.helper.Message;
-import br.goodfarma.helper.Validation;
+import br.goodfarma.helper.validation.Validation;
 import br.goodfarma.model.Employ;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
