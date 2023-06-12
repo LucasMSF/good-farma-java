@@ -3,12 +3,10 @@ package br.goodfarma.controller;
 import br.goodfarma.MainApplication;
 import br.goodfarma.dao.ProductDao;
 import br.goodfarma.dao.ProductTypeDao;
-import br.goodfarma.enumerable.Validations;
 import br.goodfarma.helper.Message;
 import br.goodfarma.helper.validation.DoubleFormatter;
 import br.goodfarma.helper.validation.IntegerFormatter;
 import br.goodfarma.helper.validation.Validation;
-import br.goodfarma.model.Employ;
 import br.goodfarma.model.Product;
 import br.goodfarma.model.ProductType;
 import javafx.collections.FXCollections;
@@ -19,7 +17,7 @@ import javafx.scene.control.*;
 import java.sql.SQLException;
 import java.util.Optional;
 
-public class ProductController {
+public class ProductController extends CrudController<Product>{
     @FXML
     private TextField txtId;
     @FXML
@@ -32,13 +30,6 @@ public class ProductController {
     private TextField txtPrice;
     @FXML
     private TextField txtDescription;
-    @FXML
-    private Button btnCancel;
-    @FXML
-    private Button btnDelete;
-
-    private boolean isEditing = false;
-    private Product model;
     private final ProductTypeDao productTypeDao = new ProductTypeDao();
     private final ProductDao productDao = new ProductDao();
 
@@ -47,29 +38,7 @@ public class ProductController {
         cmbProductType.setItems(items);
     }
 
-    private void isEditing(boolean bool) {
-        if (bool) {
-            MainApplication.setTitle(MainApplication.nowTitle + " (Editando...)");
-        } else {
-            MainApplication.setTitle(MainApplication.nowTitle);
-        }
-        this.isEditing = bool;
-        this.model = null;
-        btnCancel.setVisible(bool);
-        btnDelete.setVisible(bool);
-    }
-
-    private void isEditing(Product model) {
-        MainApplication.setTitle(MainApplication.nowTitle + " (Editando...)");
-        MainApplication.setTitle(MainApplication.nowTitle);
-
-        this.isEditing = true;
-        this.model = model;
-        btnCancel.setVisible(true);
-        btnDelete.setVisible(true);
-    }
-
-    private void clear() {
+    public void clear() {
         this.txtName.setText(null);
         this.txtQuantity.setText("");
         this.cmbProductType.setValue(null);
@@ -80,8 +49,7 @@ public class ProductController {
 
     public void initialize() {
         try {
-            this.isEditing(false);
-
+            super.initialize();
             this.txtId.setTextFormatter(new TextFormatter<>(new IntegerFormatter()));
             this.txtQuantity.setTextFormatter(new TextFormatter<>(new IntegerFormatter()));
             this.txtPrice.setTextFormatter(new TextFormatter<>(new DoubleFormatter()));

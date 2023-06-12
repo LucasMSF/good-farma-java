@@ -1,6 +1,6 @@
 package br.goodfarma.model;
 
-public class Product {
+public class Product implements Cloneable {
     public int id;
     private String name;
     private int quantity;
@@ -75,5 +75,20 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+    @Override
+    public Product clone() {
+        return new Product(
+                this.name,
+                this.quantity,
+                this.productType,
+                this.price,
+                this.description
+        );
     }
 }

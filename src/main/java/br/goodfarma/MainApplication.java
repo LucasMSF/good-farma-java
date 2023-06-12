@@ -2,7 +2,6 @@ package br.goodfarma;
 
 import br.goodfarma.enumerable.Views;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -16,7 +15,7 @@ public class MainApplication extends Application {
 
         Font.loadFont(this.getClass().getResourceAsStream("style/font/Roboto-Regular.ttf"), 14);
 
-        MainApplication.navigate(Views.PRODUCT);
+        MainApplication.navigate(Views.AUTH);
         stage.show();
     }
 

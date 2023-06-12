@@ -55,7 +55,7 @@ public class EmployDao implements Dao<Employ> {
     public boolean update(Employ model) throws SQLException {
         Database.connect();
 
-        String sql = "UPDATE employees SET name = ?, telephone = ?, login = ?, password = ? WHERE cpf = ?";
+        String sql = "UPDATE employees SET name = ?, telephone = ?, login = ?, password = ?, cpf = ? WHERE id = ?";
 
         pst = Database.getConnection().prepareStatement(sql);
 
@@ -64,6 +64,7 @@ public class EmployDao implements Dao<Employ> {
         pst.setString(3, model.getLogin());
         pst.setString(4, model.getPassword());
         pst.setString(5, model.getCpf());
+        pst.setInt(6, model.getId());
 
         boolean update = pst.executeUpdate() > 0;
 
@@ -90,7 +91,8 @@ public class EmployDao implements Dao<Employ> {
                     rs.getString("cpf"),
                     rs.getString("telephone"),
                     rs.getString("login"),
-                    rs.getString("password")
+                    rs.getString("password"),
+                    rs.getInt("id")
             );
         }
 
@@ -122,7 +124,8 @@ public class EmployDao implements Dao<Employ> {
                             rs.getString("cpf"),
                             rs.getString("telephone"),
                             rs.getString("login"),
-                            rs.getString("password")
+                            rs.getString("password"),
+                            rs.getInt("id")
                     )
             );
         }

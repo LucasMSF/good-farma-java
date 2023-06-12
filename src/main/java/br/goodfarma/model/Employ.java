@@ -18,6 +18,15 @@ public class Employ {
         this.password = password;
     }
 
+    public Employ(String name, String cpf, String telephone, String login, String password, int id) {
+        this.name = name;
+        this.cpf = cpf;
+        this.telephone = telephone;
+        this.login = login;
+        this.password = password;
+        this.id = id;
+    }
+
     public Employ(String cpf) {
         this.cpf = cpf;
     }
@@ -62,27 +71,11 @@ public class Employ {
         this.password = password;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Employ)) return false;
-        Employ employ = (Employ) o;
-        return cpf.equals(employ.cpf);
+    public int getId() {
+        return id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(cpf);
-    }
-
-    @Override
-    public String toString() {
-        return "Employ{" +
-                "name='" + name + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public void setId(int id) {
+        this.id = id;
     }
 }

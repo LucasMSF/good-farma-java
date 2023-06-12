@@ -1,20 +1,20 @@
 package br.goodfarma.controller;
 
-import br.goodfarma.MainApplication;
 import br.goodfarma.dao.Dao;
 import br.goodfarma.dao.EmployDao;
 import br.goodfarma.enumerable.Validations;
 import br.goodfarma.helper.Message;
+import br.goodfarma.helper.validation.IntegerFormatter;
 import br.goodfarma.helper.validation.Validation;
 import br.goodfarma.model.Employ;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 
 import java.sql.SQLException;
 
-public class EmployController {
+public class EmployController extends CrudController<Employ>{
     @FXML
     private TextField txtName;
     @FXML
@@ -25,32 +25,21 @@ public class EmployController {
     private TextField txtLogin;
     @FXML
     private TextField txtPassword;
-    @FXML
-    private Button btnCancel;
-    @FXML
-    private Button btnDelete;
-    private final Dao<Employ> employDao = new EmployDao();
-    private boolean isEditing = false;
 
-    private void isEditing(boolean bool) {
-        if(bool) {
-            MainApplication.setTitle(MainApplication.nowTitle + " (Editando...)");
-        } else {
-            MainApplication.setTitle(MainApplication.nowTitle);
-        }
-        this.isEditing = bool;
-        btnCancel.setVisible(bool);
-        btnDelete.setVisible(bool);
-    }
-    private void clear() {
+    private final Dao<Employ> employDao = new EmployDao();
+
+    public void clear() {
         this.txtName.setText(null);
         this.txtCpf.setText("");
         this.txtTelephone.setText("");
         this.txtLogin.setText(null);
         this.txtPassword.setText(null);
     }
+
     public void initialize() {
-        this.isEditing(false);
+        this.txtCpf.setTextFormatter(new TextFormatter<>(new IntegerFormatter()));
+        this.txtTelephone.setTextFormatter(new TextFormatter<>(new IntegerFormatter()));
+        super.initialize();
     }
 
     public void onBtnSaveClick() {
@@ -65,13 +54,13 @@ public class EmployController {
             return;
         }
 
-        if(
-            !Validation.validateWithRegex(Validations.CPF, this.txtCpf.getText()) ||
-            !Validation.validateWithRegex(Validations.TELEPHONE, this.txtTelephone.getText())
-        ) {
-            Message.show("Os campos não estão no formato correto", Alert.AlertType.ERROR);
-            return;
-        }
+//        if(
+//            !Validation.validateWithRegex(Validations.CPF, this.txtCpf.getText()) ||
+//            !Validation.validateWithRegex(Validations.TELEPHONE, this.txtTelephone.getText())
+//        ) {
+//            Message.show("Os campos não estão no formato correto", Alert.AlertType.ERROR);
+//            return;
+//        }
 
         Employ employ = new Employ(
                 this.txtName.getText(),
@@ -83,6 +72,7 @@ public class EmployController {
 
         try {
             if(this.isEditing) {
+                employ.setId(this.model.getId());
                 if(this.employDao.update(employ)) {
                     Message.show("Registro alterado com sucesso!", Alert.AlertType.INFORMATION);
 
@@ -121,6 +111,7 @@ public class EmployController {
                 this.txtTelephone.setText(findedEmploy.getTelephone());
                 this.txtLogin.setText(findedEmploy.getLogin());
                 this.txtPassword.setText(findedEmploy.getPassword());
+                this.model = findedEmploy;
                 this.isEditing(true);
             }
         } catch(SQLException e) {
@@ -146,9 +137,5 @@ public class EmployController {
         }
 
         this.onBtnCancelClick();
-    }
-    public void onBtnCancelClick() {
-        this.isEditing(false);
-        this.clear();
     }
 }

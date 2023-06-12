@@ -12,7 +12,9 @@ public enum Views {
     MENU("Menu", "menu"),
     AUTH("Autenticação", "auth", 450, 600),
     EMPLOY("Funcionários", "employ"),
-    PRODUCT("Produtos", "product");
+    PRODUCT("Produtos", "product"),
+    SUPPLIER("Fornecedores", "supplier"),
+    PRODUCT_TABLE("Tabela de produtos", "product-table");
 
     private final String title;
     private final Scene view;
