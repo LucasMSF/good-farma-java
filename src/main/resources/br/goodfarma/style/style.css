@@ -32,6 +32,14 @@
     -fx-font-family: "Roboto";
 }
 
+.sidebar-label {
+    -fx-text-fill: #FFF;
+}
+
+.siderbar-label-pane {
+    -fx-background-color: #e60b58;
+}
+
 .auth-container {
     -fx-background-color: #0373fc
 }

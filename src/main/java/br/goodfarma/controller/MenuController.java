@@ -3,7 +3,6 @@ package br.goodfarma.controller;
 
 import br.goodfarma.MainApplication;
 import br.goodfarma.enumerable.Views;
-import br.goodfarma.helper.Message;
 
 public class MenuController {
     public void onBtnProductClick() {
@@ -20,16 +19,5 @@ public class MenuController {
 
     public void onBtnSupplierClick() {
         MainApplication.navigate(Views.SUPPLIER);
-    }
-
-    public void onBtnBackClick() {
-        MainApplication.navigate(Views.MENU);
-    }
-
-    public void onBtnExitClick() {
-        if(!Message.confirm("Deseja realmente sair?")) {
-            return;
-        }
-        MainApplication.navigate(Views.AUTH);
     }
 }

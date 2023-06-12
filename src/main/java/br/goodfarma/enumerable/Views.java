@@ -17,20 +17,31 @@ public enum Views {
     PRODUCT_TABLE("Tabela de produtos", "product-table");
 
     private final String title;
-    private final Scene view;
+    private final String viewName;
+    private final int width;
+    private final int height;
+    private Scene view;
     Views(String title, String viewName, int width, int height) {
         this.title = title;
+        this.viewName = viewName;
+        this.width = width;
+        this.height = height;
 
-        try {
-            FXMLLoader sceneLoader = new FXMLLoader(MainApplication.class.getResource("view/" + viewName + "-view.fxml"));
-            this.view = new javafx.scene.Scene(sceneLoader.load(), width, height);
-            this.view.getStylesheets().add(MainApplication.class.getResource("style/style.css").toExternalForm());
-        } catch (IOException e) {
-            throw new RuntimeException("Error on load scene");
-        }
     }
     Views(String title, String viewName) {
         this(title, viewName, 1000, 650);
+    }
+
+    private Scene loadView() {
+        try {
+            FXMLLoader sceneLoader = new FXMLLoader(MainApplication.class.getResource("view/" + this.viewName + "-view.fxml"));
+            Scene view =  new Scene(sceneLoader.load(), this.width, this.height);
+            view.getStylesheets().add(MainApplication.class.getResource("style/style.css").toExternalForm());
+            return view;
+        } catch (IOException e) {
+//            e.printStackTrace();
+            throw new RuntimeException("Error on load scene");
+        }
     }
 
     public String getTitle() {
@@ -38,6 +49,7 @@ public enum Views {
     }
 
     public Scene getView() {
+        this.view = this.loadView();
         return view;
     }
 }

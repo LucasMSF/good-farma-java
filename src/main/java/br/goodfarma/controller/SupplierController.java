@@ -4,7 +4,6 @@ import br.goodfarma.dao.Dao;
 import br.goodfarma.dao.ProductDao;
 import br.goodfarma.dao.SupplierDao;
 import br.goodfarma.helper.Message;
-import br.goodfarma.helper.validation.DoubleFormatter;
 import br.goodfarma.helper.validation.IntegerFormatter;
 import br.goodfarma.helper.validation.Validation;
 import br.goodfarma.model.Product;
